@@ -112,9 +112,7 @@ document.querySelectorAll(".croix").forEach((button) => {
   button.addEventListener("click", closeModal);
 });
 
-
-
-window.addEventListener("click", e => {
+window.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal")) {
     e.target.style.display = "none";
     e.target.setAttribute("aria-hidden", "true");
@@ -149,11 +147,10 @@ function displayModal(works) {
           Authorization: "Bearer " + jeton,
           "Content-Type": "application/json",
         },
-      })
-        .then((data) => {
-          figure.remove();
-          document.getElementById(works[i].id).remove()
-        });
+      }).then((data) => {
+        figure.remove();
+        document.getElementById(works[i].id).remove();
+      });
     });
     modalContent.appendChild(figure);
     figure.append(img, figcaption, poubelle, editModal);
@@ -168,6 +165,7 @@ const modal2 = document.getElementById("modal2");
 btnAjoutImage.addEventListener("click", () => {
   modal2.style.display = "flex";
   modal1.style.display = "none";
+
 });
 
 // Passage modal1 via flèche retour
@@ -198,6 +196,7 @@ ajoutPhoto.addEventListener("change", function (e) {
     reader.readAsDataURL(file);
     modalContent2.style.display = "none";
   }
+ 
 });
 
 // soumission du formulaire
@@ -227,20 +226,49 @@ form.addEventListener("submit", function (e) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
-      let image = document.querySelector(".gallery")
-      let figure = document.createElement("figure");
-      let img = document.createElement("img");
-      let figcaption = document.createElement("figcaption");
-      img.setAttribute("src", data.imageUrl);
-      figure.setAttribute("id", data.id);
+      console.log(data);
+      const modalContent = document.querySelector(".modalContent");
+      const galleryContent = document.querySelector(".gallery");
+      const figureModal = document.createElement("figure");
+      const figureGallery = document.createElement("figure");
+      const imgModal = document.createElement("img");
+      const imgGallery = document.createElement("img");
+      const figcaption = document.createElement("figcaption");
+      const corbeille = document.createElement("p");
+      const editModal = document.createElement("e");  
+      imgGallery.setAttribute("src", data.imageUrl);
+      imgModal.setAttribute("src", data.imageUrl);
+      imgModal.setAttribute("id", data.id);
       figcaption.innerHTML = data.title;
-      image.appendChild(figure);
-      figure.append(img, figcaption); 
-      form.reset();
-      closeModal(e)
+      corbeille.classList.add("fa-solid", "fa-trash-can");
+      figureModal.append(imgModal, figcaption, corbeille, editModal);
+      modalContent.appendChild(figureModal);
+      figureGallery.append(imgGallery, figcaption);
+      galleryContent.appendChild(figureGallery);
+     
+      closeModal(e);
+
+      corbeille.addEventListener("click", () => {
+        figureModal.remove();
+        figureGallery.remove();
+        const supp = data.id;
+        fetch(apiWorks + "/" + supp, {
+          method: "DELETE",
+          headers: {
+            Authorization: "Bearer " + jeton,
+            "Content-Type": "application/json",
+          },
+        }).then((data) => {
+          figureGallery.remove();
+        });
+        
+      });
+    
     })
+  
     .catch((error) =>
       console.error("Erreur lors de l'ajout du projet :", error)
+      
     );
+    
 });
