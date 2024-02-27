@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f6eb;
+  height: 500px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+li {
+  margin: 15px;
+  font-family: "Work Sans";
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Syne";
+  font-size: 22px;
+  font-weight: 800;
+  color: #b1663c;
+}
+h1 span {
+  font-family: "Work Sans";
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: medium;
+  font-family: "Syne";
+  color: #b1663c;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  font-family: "Syne";
+  color: #1d6154;
+}
+
+.formulaire {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 10px 70px 10px 2px;
+  border: 0px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+form p {
+  margin: 0;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-family: "Work Sans";
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  border: solid 1px;
+  border-radius: 60px 60px 60px 60px;
+  color: white;
+  background-color: #1d6154;
+  font-family: "Syne";
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  justify-content: end;
+  background-color: white;
+  margin-top: 500px;
+  padding: 10px;
+  font-family: "Work Sans";
+  height: 50px;
+}
+
+#error {
+  text-align: center;
+}
+
+#myForm button {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.fa-instagram:before {
+  font-size: x-large;
+}
+
+label {
+  font-family: "Work Sans";
+  size: 14px;
+}

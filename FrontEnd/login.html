@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/login.css" />
+
+    <title>Log in</title>
+  </head>
+
+  <body>
+    <main>
+      <div>
+    <header>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <nav>
+        <ul>
+          <li>projets</li>
+          <li>contact</li>
+          <li>login</li>
+          <li><img src="./assets/icons/instagram.png" alt="logo permettant d'aller sur le site instagram" /></li>
+        </ul>
+      </nav>
+    </header>
+
+    <h3>Log in</h3>
+
+    <div class="formulaire">
+      <form id="myForm">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" /><br />
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" /><br />
+        <div id="error"></div>
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+
+    <p><a href="#">Mot de passe oublié</a></p>
+  </div>
+    <footer>Mentions légales</footer>
+  </main>
+    <script src="login.js"></script>
+  </body>
+</html>
